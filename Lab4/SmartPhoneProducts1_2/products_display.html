@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Smartphone Prdoucts</title>
-    <p style="text-align: center; font-weight: bold;">
-        Hits:<span id="hits_span">0</span>
-        Spins:<span id="spins_span">0</span>
-        </p>
     <link rel="stylesheet" type="text/css" href="products-style.css">
     <style id="localStyle"></style>
     <script>
@@ -22,8 +18,13 @@
         </h1>
 </header>
 <body>
+    <p style="text-align: center; font-weight: bold;">
+        Hits:<span id="hits_span">0</span>
+        Spins:<span id="spins_span">0</span>
+    </p>
     <body onload="hits_span.innerHTML = hits; 
-    spins_span.innerHTML = spins;"></body>
+    spins_span.innerHTML = spins;">
+    </body>
 <div>
     <main>
     <section class="item" onmouseover="className='item rotate'" spins_span.innerHTML = spins++; onclick="className='item'; hits_span.innerHTML = hits++;">     
@@ -53,7 +54,7 @@
     </section>
 </main>
 </div>
-<input id="speedSlider" type='range' min="5" step=".1" style="direction: rtl;" onchange="localStyle.innerHTML = '.rotate img {animation-duration:' + speedSlider.value +'s;}';">
+    <input id="speedSlider" type='range' min="5" step=".1" style="direction: rtl;" onchange="localStyle.innerHTML = '.rotate img {animation-duration:' + speedSlider.value +'s;}';">
 </body>
 <footer>
     <h1>
