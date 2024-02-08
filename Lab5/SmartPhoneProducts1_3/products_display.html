@@ -8,27 +8,37 @@
     <style id="localStyle"></style>
     <script>
         const store_name = "Jolin Zhang";
+        const first_name = "Jolin";
+        const last_name = "Zhang";
     </script>
 </head>
 <body>
     <header>
         <h1>
             <script>
-                document.write(store_name + "'s Used Smart Phone Store");
+                document.write(`${first_name.bold().fontsize(8)} ${last_name.italics().fontsize(8)}
+                's Used Smart Phone Store`);
+                document.querySelector('header').innerHTML = headerContent;
             </script>
+
         </h1>
     </header>
     <body onload="hits_span.innerHTML = hits; spins_span.innerHTML = spins;">
-    <input id="speedSlider" type='range' min="5" step=".1" style="direction: rtl;" onchange="localStyle.innerHTML = '.rotate img {animation-duration:' + speedSlider.value + 's;}';">
+    <input id="speedSlider" type='range' min="5" step=".1" style="direction: rtl;" onchange="localStyle.innerHTML 
+    = '.rotate img {animation-duration:' + speedSlider.value + 's;}';">
 
     <p style="text-align: center; font-weight: bold;">
         Hits: <span id="hits_span">0</span>
         Spins: <span id="spins_span">0</span>
         Hit/Spin:<span id="hit_spin_span">0</span>
+
     <div>
         <main>
-            <section class="item" onmouseover="changeClassName(this); spins_span.innerHTML = spins++;"
-                onclick="resetClassName(this); hits_span.innerHTML = hits++;">
+            <section class="item" onmouseover="changeClassName(this); spins=spins+1; 
+            spins_span.innerHTML = spins; 
+            hit_spin_span.innerHTML=(hits/spins).toFixed(2);
+            "onclick="resetClassName(this); hits=hits+=2; hits_span.innerHTML = 
+            hits; hit_spin_span.innerHTML=(hits_span.innerHTML/spins_span.innerHTML).toFixed(2);">
                 <h2>HTC</h2>
                 <p>&dollar; 40</p>
                 <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg" />
@@ -76,9 +86,20 @@
         </h1>
         <h1>
             <script>
+                let line = 1;
+                const now = new Date();
+                const hours = now.getHours();
+
                 document.write("Your one stop shop for used phones - "+store_name+"'s");
+                <table border="1" style="margin-left: auto; margin-right: auto; text-align: center;">
+                <tr><th colspan="2"><h1>Your One Stop For Used Phones - ${first_name[0].toUpperCase()}.${last_name[0].toUpperCase()}.'s</h1></th></tr>
+                <tr><td> 1. </td><td><br />Copyright @ ${first_name} ${last_name}</td></tr>
+                <tr><td> 2. </td><td>${now.getFullYear()}</td></tr>
+                <tr><td> 3. </td><td>${((hours + 11) % 12 + 1)}:${(now.getMinutes() < 12 ? '0' :'') + now.getMinutes()} ${(hours < 12) ? 'AM' : 'PM'}</td></tr>
+                </table>
             </script>   
         </h1>
     </footer>
+    <script src="products-style.css"></script>
 </body>
 </html>
