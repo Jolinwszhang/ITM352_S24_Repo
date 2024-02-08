@@ -90,13 +90,14 @@
                 const now = new Date();
                 const hours = now.getHours();
 
-                document.write("Your one stop shop for used phones - "+store_name+"'s");
-                <table border="1" style="margin-left: auto; margin-right: auto; text-align: center;">
+                document.write(`
+            <table border="1" style="margin-left: auto; margin-right: auto; text-align: center;">
                 <tr><th colspan="2"><h1>Your One Stop For Used Phones - ${first_name[0].toUpperCase()}.${last_name[0].toUpperCase()}.'s</h1></th></tr>
                 <tr><td> 1. </td><td><br />Copyright @ ${first_name} ${last_name}</td></tr>
                 <tr><td> 2. </td><td>${now.getFullYear()}</td></tr>
-                <tr><td> 3. </td><td>${((hours + 11) % 12 + 1)}:${(now.getMinutes() < 12 ? '0' :'') + now.getMinutes()} ${(hours < 12) ? 'AM' : 'PM'}</td></tr>
-                </table>
+                <tr><td> 3. </td><td>${((hours + 11) % 12 + 1)}:${(now.getMinutes() < 10 ? '0' : '') + now.getMinutes()} ${(hours < 12) ? 'AM' : 'PM'}</td></tr>
+            </table>
+                `);
             </script>   
         </h1>
     </footer>
