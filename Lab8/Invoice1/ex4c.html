@@ -17,6 +17,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        tr:hover {
+            background-color: yellow;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
   
@@ -39,7 +45,41 @@
                 </tr>`);
         }
     </script>
+      <tbody id ="tb"
+      onclick="new_row = this.appendChild(document.createElement('tr'));
+        for (let i = 0; i < tbody.rows[0].cells.length; i++) {
+            let new_cell = new_row.appendChild(document.createElement('td'));
+            new_cell.innerHTML = 'xxx'; 
+      }"></tbody>
 </table>
+
+<input type="button" value="Delete Last Row"
+    onclick="
+        let tb = document.getElementById('invoice_table');
+        tb=tb.deleteRow(tb.rows.length -1)"> 
+
+
+<script>
+    function addNewRow() {
+        let tb = document.getElementById('invoice_table').getElementsByTagName('tbody')[0];
+        let newRow = tb.insertRow(-1); // Insert at the end of the table
+
+        // Clone the first row's cells
+        let cloneRow = tb.rows[1].cloneNode(true);
+        for (let i = 0; i < cloneRow.cells.length; i++) {
+            let newCell = newRow.insertCell(i);
+            newCell.innerHTML = cloneRow.cells[i].innerHTML;
+        }
+    }
+
+    // Add onclick for table rows to delete them
+    let rows = document.getElementsByTagName('tr');
+    for (let i = 1; i < rows.length; i++) { // Start from index 1 to exclude header row
+        rows[i].onclick = function () {
+            this.parentNode.removeChild(this);
+        };
+    }
+</script>
+</body>
 </body>
 </html>
-

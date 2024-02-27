@@ -39,6 +39,12 @@
                 </tr>`);
         }
     </script>
+      <tbody id ="tb"
+      onclick="new_row = this.appendChild(document.createElement('tr'));
+        for (let i = 0; i < tbody.rows[0].cells.length; i++) {
+            let new_cell = new_row.appendChild(document.createElement('td'));
+            new_cell.innerHTML = 'xxx'; 
+      }"></tbody>
 </table>
 </body>
 </html>

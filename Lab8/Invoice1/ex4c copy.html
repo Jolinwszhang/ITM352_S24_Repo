@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr:hover {
+            background-color: yellow;
+            cursor: pointer;
+        }
+        td:hover {
+            background-color: chartreuse;
+        }
+        td {
+            height: 25px;
+            width: 20px;
+            text-align: center;
+            cursor: cell;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+  
+<table id="invoice_table" style="border: 1px solid black;text-align: center;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Product #</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Extended Price</th>
+    </tr>
+    <script>
+        let product_quantities = [0, 1, 1, 3, 12];
+        let products = [
+            { 'name': 'small gumball', 'price': 0.02 },
+            { 'name': 'medium gumball', 'price': 0.05 },
+            { 'name': 'large gumball', 'price': 0.07 },
+            { 'name': 'small jawbreaker', 'price': 0.06 },
+            { 'name': 'large jawbreaker', 'price': 0.10 }
+        ];
+
+        // loop through product_quantities
+        for (let i = 0; i < product_quantities.length; i++) {
+            // print out table row
+            document.write(`<tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">${i + 1}</td>
+                <td>${products[i].name}</td>
+                <td>${products[i].price}</td>
+                <td>${product_quantities[i]}</td>
+                <td>${product_quantities[i] * products[i].price}</td>
+            </tr>`);
+    
+        }
+        // 3x3 table tic tac toe 
+        let TicTacToe = [
+        ["X", "O", "X"],
+        ["O", "X", "O"],
+        ["X", "O", "O"]
+    ];
+    for (let i = 0; i < TicTacToe.length; i++) {
+        for (let j = 0; j < TicTacToe[i].length; j++) {
+            TicTacToe[i][j] = "-";
+        }
+    }
+
+    let marks = ["X", "O"];
+    let move_num = 0;
+
+    
+    </script>
+    <tbody id="tb">
+      <!-- Your dynamic rows will be added here -->
+    </tbody>
+</table>
+
+<input type="button" value="Delete Last Row" onclick="deleteLastRow()">
+
+<input type="button" value="Add New Row" onclick="addNewRow()">
+
+<script>
+    function addNewRow() {
+        let tb = document.getElementById('invoice_table').getElementsByTagName('tbody')[0];
+        let newRow = tb.insertRow(-1);
+
+        for (let i = 0; i < tb.rows[1].cells.length; i++) {
+            let newCell = newRow.insertCell(i);
+            newCell.innerHTML = 'xxx';
+        }
+    }
+
+    function deleteLastRow() {
+        let tb = document.getElementById('invoice_table');
+        tb.deleteRow(tb.rows.length - 1);
+    }
+
+    // Add onclick for table rows to delete them
+    let rows = document.getElementsByTagName('tr');
+    for (let i = 1; i < rows.length; i++) { // Start from index 1 to exclude header row
+        rows[i].onclick = function () {
+            this.parentNode.removeChild(this);
+        };
+    }
+</script>
+
+
+</body>
+</html>
