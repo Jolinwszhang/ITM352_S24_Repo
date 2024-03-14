@@ -6,6 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    
+    qunatity desired <input id="quantity_textbox"type ="text"value ="type of something" onkeyup="checkQuantityTextBox(this,'qty_textbox_message');">
+    <span id="qty_textbox_message"> Enter A Quantity</span>
+    <br>
+    <input type="button" value="purchase" onclick="displaypurchase()"
+
 </body>
 </html>
+<script>
+    function checkQuantityTextBox(the_textbox, the_textbox_message){
+        document.getElementById(the_textbox.id +'_message').innerHTML= the_textbox.value;
+    }
+    function isNonNegInt(the_textbox){
+    errors = []; // assume no errors at first 
+    if(Number(q) !=q) errors.push('Not a number!');// chceck if string is a number value 
+    if(q<0) errors.push('Negative value!');// Check if it is non-negative 
+    if(parseInt(q) !=q) errors.push('Not an Integer!');// check that is is an integer
+    return(errors.length == 0);
+}   
+function displayPurchase(){
+    document.body.innerHTML = `Thank for you for ordering ${quantity_textbox} things!`;
+}
+</script>
