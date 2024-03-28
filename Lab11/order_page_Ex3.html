@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Order_page.js"></script>
+</head>
+<body>
+    <form name="quantity_form" action="./Display_purchase.html" method="get">
+    Quantity desired1: <input name="quantity_textbox1" type="text" onkeyup="checkQuantityTextbox(this);">
+    <span id='quantity_textbox1_message'>Enter a quantity</span>
+    <br>
+    Quantity desired2: <input id="quantity_textbox2" type="text" onkeyup="checkQuantityTextbox(this);">
+    <span name='quantity_textbox2_message'>Enter a quantity</span>
+    <br>
+    <input type="submit" value="Purchase">
+</form>
+    
+</body>
+</html>

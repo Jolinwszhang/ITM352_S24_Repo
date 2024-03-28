@@ -6,6 +6,15 @@
     <title>Document</title>
     <script src="./product_data.js"></script>
     <script>
+       //query string params from products_display.html
+       let params = (new URL(document.location)).searchParams;
+      quantities = [];
+
+      for (let i = 0; i < products.length; i++) {
+  let quantity = params.get(`quantity${i}`);
+  quantities.push(quantity); // Push the quantity variable, not the quantities array
+};
+
        //Compute subtotal 
        let subtotal= 0;
        function isNonNegInt(quantities){
