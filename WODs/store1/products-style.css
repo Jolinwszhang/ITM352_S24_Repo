@@ -1,8 +1,12 @@
-/* General */
+ /* General */
+ 
+
 html {
+  
   font-family: 'Raleway', sans-serif;
   background-color: pink;
   font-size: 10px;
+  
 }
 
 body {
@@ -11,11 +15,16 @@ body {
 }
 
 /* Typography */
+
+
 h1, h2 {
+  
   font-family: 'impact';
   margin: 0;
+  
   text-align: center;
 }
+
 
 h1 {
   font-size: 5rem;
@@ -28,19 +37,33 @@ h2 {
   color: rgb(250, 106, 224);
   text-align: right;
   width: 160px;
-  position: absolute;
-  right: 4%;
+  position: relative;
+  right: -50%;
   z-index: 3000;
   text-shadow: 2px 2px 1px black;
   line-height: 2rem;
   padding-top: 0.3rem;
 }
-
+h3{
+  font-size: 1.5rem;
+  color: rgb(250, 106, 224);
+  text-align: right;
+  width: 160px;
+  position: relative;
+  right: -50%;
+  z-index: 3000;
+  text-shadow: 2px 2px 1px black;
+  line-height: 2rem;
+  padding-top: 0.3rem;
+}
 p {
   font-size: 1.5rem;
 }
 
-/* Block styling */
+
+/* block styling */
+
+
 header, aside, main, footer {
   padding: 20px;
 }
@@ -54,10 +77,12 @@ aside {
   border-right: 5px solid black;
 }
 
+
 body > div {
   border: 5px solid black;
   display: flex;
 }
+
 
 footer {
   border: 5px solid black;
@@ -77,12 +102,15 @@ main {
   flex: 7;
 }
 
-/* Form styling */
+
+/*  Form styling */
+
 main {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
+
 
 aside {
   display: flex;
@@ -95,9 +123,12 @@ aside div {
   margin-bottom: 20px;
 }
 
+
 /* Styling the products */
+
+
 section {
-  width: 48%;
+  width: 45%;
   margin: 5px;
   background-color: black;
   position: relative;
@@ -111,38 +142,41 @@ section p {
   height: 50px;
   line-height: 50px;
   text-align: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 1px red;
   position: absolute;
   right: 10px;
   bottom: -6px;
   z-index: 2000;
 }
 
+
 .item {
-  background-size: 300px 4px;
+  background-size: 234px 24px;
 }
 
-/* Quantity input */
-.item input[type="text"] {
-  position: absolute;
-  top: 115px; /* Adjusted top position to move the input box lower */
-  right: 30px;
-  width: 50px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: white;
-}
+
 .item img {
-  width: 200px;
-  height: 200px;
-  display: block;
-  position: absolute;
-  bottom: 0px;
-}
-/* Footer styling */
-footer {
-  border: px solid black;
-  border-top: 0;
-  text-align: center; /* Add this line to center-align text */
+    width: 200px;
+    height: 200px; 
+    
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    
 }
 
+.quantity-input{
+  width: 80px;
+  height: 80px; 
+  font-size:large;
+}
+
+.Purchase_button{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: hotpink;
+  color: wheat;
+  font-size: 30px;
+  width: 200px;
+  height: 50px;
+}

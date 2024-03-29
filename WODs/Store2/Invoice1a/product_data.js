@@ -27,3 +27,6 @@
    image : "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg",
     },
    ];
+//product quantities
+  let quantities = [1,30,50,-10,-5];
+  

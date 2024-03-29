@@ -3,45 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Invoice3a</title>
     <script src="./product_data.js"></script>
     <script>
-       //query string params from products_display.html
-       let params = (new URL(document.location)).searchParams;
-      quantities = [];
+      //query string parameter
+      let params = (new URL(document.location)).searchParams;
+      quantities=[];
 
-      for (let i = 0; i < products.length; i++) {
-  let quantity = params.get(`quantity${i}`);
-  quantities.push(quantity); // Push the quantity variable, not the quantities array
-};
+      for(let i=0; i< products.length; i++){
+        let quantity =params.get(`quantity${i}`);
+        quantities.push(quantity);
+      };
 
-       //Compute subtotal 
+      //Compute subtotal 
        let subtotal= 0;
-       function isNonNegInt(quantities){
-      errors = [];
-       // assume no errors at first 
-      if(Number(quantities) !=quantities) errors.push('Not a number!');
-      // chceck if string is a number value 
-      if(quantities<0) errors.push('Negative value!');
-      // Check if it is non-negative 
-      if(parseInt(quantities) !=quantities) errors.push('Not an Integer!');
-      // check that is is an integer
-      return(errors.length == 0);
-  };
-       // generate item row function
-       function generate_item_rows(){
-        // item rows 
+    function isNonNegInt(quantities){
+        errors = []; // assume no errors at first 
+        if(Number(quantities) !=quantities) errors.push('Not a number!');// chceck if string is a number value 
+        if(quantities<0) errors.push('Negative value!');// Check if it is non-negative 
+        if(parseInt(quantities) !=quantities) errors.push('Not an Integer!');// check that is is an integer
+        return(errors.length == 0);
+};  
+
+      function generate_item_rows(){
         for(let i in quantities){
-          let extended_price = quantities[i] * products[i].price
-          if(quantities[i] == 0){
-            continue;
-          }else{
-            //callback
-            isNonNegInt(quantities[i]);
-            if(errors.length !=0){
+        let extended_price = quantities[i] * products[i].price
+        if(quantities[i]==0){
+          continue;
+        }else{
+          //callback
+          isNonNegInt(quantities[i]);
+          if(errors.length !=0){
             extended_price = 0
-            };
-            //check that a quantity is valid before writing the table row
+          };
           document.write(`
           <tr>
           <td width="43%">${products[i].brand}</td>
@@ -49,12 +43,13 @@
           <div style="color:red;">${errors}</div></td>
           <td width="13%">\$${products[i].price.toFixed(2)}</td>
           <td width="54%">$${extended_price.toFixed(2)}</td>
-        </tr>`);
-          }
-        // subtoatl += exteneded price 
-        subtotal += extended_price;
+        </tr>
+          `);
+        }
+        // subtotal += exteneded
+        subtotal += extended_price
         };
-       };
+      };
     </script>
 </head>
 <body>
@@ -67,29 +62,29 @@
           <th style="text-align: center;" width="54%">extended price</th>
         </tr>
         <script>
-        //function 
-        generate_item_rows(quantities);
-         
-      //Compute taxrate
-      let taxrate=0.0575
-      let tax= subtotal*taxrate;
-    
-      //Compute Shipping
-      if(subtotal<=50){
-        shipping=2;
-      }
-      else if(subtotal<=100){
-        shipping=100;
-      }
-      else{
-        shipping=0.05*subtotal;
-      }
-    
-      //Compute Grandtotal 
-      let total= subtotal+tax+shipping;
-    
-        </script>
+         generate_item_rows (quantities);
+          
+          //Compute taxrate
+          let taxrate=0.0575
+          let tax= subtotal*taxrate;
+
+          //Compute Shipping
+          if(subtotal<=50){
+            shipping=2;
+          }
+          else if(subtotal<=100){
+            shipping=100;
+          }
+          else{
+            shipping=0.05*subtotal;
+          }
+
+          //Compute Grandtotal 
+          let total= subtotal+tax+shipping;
+
+         </script>
      
+  
         <tr>
           <td colspan="4" width="100%">&nbsp;</td>
         </tr>
